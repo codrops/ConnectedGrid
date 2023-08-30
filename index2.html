@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Connected Grid Layout Animation | Demo 2 | Codrops</title>
+		<meta name="description" content="Simple on-scroll animations for connected grid items" />
+		<meta name="keywords" content="on-scroll, animation, gsap, scrolltrigger, css, grid, layout, effect" />
+		<meta name="author" content="Codrops" />
+		<link rel="shortcut icon" href="favicon.ico">
+		<link rel="stylesheet" href="https://use.typekit.net/pdt4wgm.css">
+		<link rel="stylesheet" type="text/css" href="css/base.css" />
+		<script>document.documentElement.className="js";var supportsCssVars=function(){var e,t=document.createElement("style");return t.innerHTML="root: { --tmp-var: bold; }",document.head.appendChild(t),e=!!(window.CSS&&window.CSS.supports&&window.CSS.supports("font-weight","var(--tmp-var)")),t.parentNode.removeChild(t),e};supportsCssVars()||alert("Please view this demo in a modern browser that supports CSS Variables.");</script>
+		<script src="//tympanus.net/codrops/adpacks/analytics.js"></script>
+	</head>
+	<body class="demo-2 loading">
+		<main>
+			<div class="frame">
+				<h1 class="frame__title">Connected Grid Layout Animation</h1> 
+				<a class="frame__back" href="https://tympanus.net/codrops/?p=73283">Back to the article</a>
+				<a class="frame__prev" href="https://tympanus.net/Development/OnScrollColumnsRows/">Previous demo</a>
+				<nav class="frame__demos">
+					<span class="frame__demos-item">Variations </span>
+					<a class="frame__demos-item" href="index.html">1</a>
+					<span class="frame__demos-item">2</span>
+					<a class="frame__demos-item" href="index3.html">3</a>
+					<a class="frame__demos-item" href="index4.html">4</a>
+				</nav>
+			</div>
+			<div class="grid">
+			    <figure class="grid__item" style="--r: 1;--c: 4;--s: 3;">
+			        <div class="grid__item-img">
+			            <div class="grid__item-img-inner" style="background-image:url(img/14.jpg);"></div>
+			        </div>
+			        <figcaption class="grid__item-caption"><h3>Mars Deluxe Retreat</h3> <span>2023</span></figcaption>
+			    </figure>
+			    <figure class="grid__item" style="--r: 2;--c: 1;--s:3;">
+			        <div class="grid__item-img">
+			            <div class="grid__item-img-inner" style="background-image:url(img/15.jpg);"></div>
+			        </div>
+			        <figcaption class="grid__item-caption"><h3>Desert Planet Suites</h3> <span>2022</span></figcaption>
+			    </figure>
+			    <figure class="grid__item" style="--r: 3;--c: 4;--s: 4;">
+			        <div class="grid__item-img">
+			            <div class="grid__item-img-inner" style="background-image:url(img/16.jpg);"></div>
+			        </div>
+			        <figcaption class="grid__item-caption"><h3>Redscape Elegance</h3> <span>2024</span></figcaption>
+			    </figure>
+			    <figure class="grid__item" style="--r: 4;--c: 2;--s: 2;">
+			        <div class="grid__item-img">
+			            <div class="grid__item-img-inner" style="background-image:url(img/17.jpg);"></div>
+			        </div>
+			        <figcaption class="grid__item-caption"><h3>Dune Mars Retreat</h3> <span>2021</span></figcaption>
+			    </figure>
+			    <figure class="grid__item" style="--r: 5;--c: 4;--s: 3;">
+			        <div class="grid__item-img">
+			            <div class="grid__item-img-inner" style="background-image:url(img/18.jpg);"></div>
+			        </div>
+			        <figcaption class="grid__item-caption"><h3>Bagnold Luxury Oasis</h3> <span>2023</span></figcaption>
+			    </figure>
+			    <figure class="grid__item" style="--r: 6;--c: 2;--s: 2;">
+			        <div class="grid__item-img">
+			            <div class="grid__item-img-inner" style="background-image:url(img/19.jpg);"></div>
+			        </div>
+			        <figcaption class="grid__item-caption"><h3>Husband Hill Haven</h3> <span>2022</span></figcaption>
+			    </figure>
+			    <figure class="grid__item" style="--r: 7;--c: 4;--s:3;">
+			        <div class="grid__item-img">
+			            <div class="grid__item-img-inner" style="background-image:url(img/20.jpg);"></div>
+			        </div>
+			        <figcaption class="grid__item-caption"><h3>Namib Dune Lodges</h3> <span>2024</span></figcaption>
+			    </figure>
+			    <figure class="grid__item" style="--r: 8;--c: 2;--s:2;">
+			        <div class="grid__item-img">
+			            <div class="grid__item-img-inner" style="background-image:url(img/21.jpg);"></div>
+			        </div>
+			        <figcaption class="grid__item-caption"><h3>Red Sands Interiors</h3> <span>2021</span></figcaption>
+			    </figure>
+			    <figure class="grid__item" style="--r: 9;--c: 4;--s: 4;">
+			        <div class="grid__item-img">
+			            <div class="grid__item-img-inner" style="background-image:url(img/22.jpg);"></div>
+			        </div>
+			        <figcaption class="grid__item-caption"><h3>Abalos Mirage Suites</h3> <span>2023</span></figcaption>
+			    </figure>
+			    <figure class="grid__item" style="--r: 10;--c: 8;--s: 1;">
+			        <div class="grid__item-img">
+			            <div class="grid__item-img-inner" style="background-image:url(img/23.jpg);"></div>
+			        </div>
+			        <figcaption class="grid__item-caption"><h3>Hagal Tranquility</h3> <span>2022</span></figcaption>
+			    </figure>
+			    <figure class="grid__item" style="--r: 11;--c: 3;--s: 5;">
+			        <div class="grid__item-img">
+			            <div class="grid__item-img-inner" style="background-image:url(img/24.jpg);"></div>
+			        </div>
+			        <figcaption class="grid__item-caption"><h3>Gusev Zen Retreat</h3> <span>2024</span></figcaption>
+			    </figure>
+			    <figure class="grid__item" style="--r: 12;--c: 1;--s: 2;">
+			        <div class="grid__item-img">
+			            <div class="grid__item-img-inner" style="background-image:url(img/25.jpg);"></div>
+			        </div>
+			        <figcaption class="grid__item-caption"><h3>Nili Patera Luxury</h3> <span>2021</span></figcaption>
+			    </figure>
+			    <figure class="grid__item" style="--r: 13;--c: 3;--s: 5;">
+			        <div class="grid__item-img">
+			            <div class="grid__item-img-inner" style="background-image:url(img/26.jpg);"></div>
+			        </div>
+			        <figcaption class="grid__item-caption"><h3>Siton Elegance Escapes</h3> <span>2023</span></figcaption>
+			    </figure>
+			</div>
+			<section class="outro">
+				<h2 class="outro__title">More you might like</h2>
+				<div class="card-wrap">
+					<div class="card">
+						<a href="http://tympanus.net/Development/GridToSlider/" class="card__image" style="background-image:url(https://i7x7p5b7.stackpathcdn.com/codrops/wp-content/uploads/2023/05/gridtoslider_feat.jpg?x15297"></a>
+						<h3 class="card__title"><a href="http://tympanus.net/Development/GridToSlider/">Grid to Slideshow Switch Animations</a></h3>
+					</div>
+					<div class="card">
+						<a href="https://tympanus.net/Development/GridFlowEffect/" class="card__image" style="background-image:url(https://i7x7p5b7.stackpathcdn.com/codrops/wp-content/uploads/2023/07/gridflow_featured-1.jpg)"></a>
+						<h3 class="card__title"><a href="http://tympanus.net/Development/GridFlowEffect/">Grid Flow Animation</a></h3>
+					</div>
+				</div>
+			</section>
+			<p class="credits">Made by <a href="https://twitter.com/codrops">@codrops</a></p>
+		</main>
+		<script src="https://tympanus.net/codrops/adpacks/cda_sponsor.js"></script>
+		<script src="js/gsap.min.js"></script>
+		<script src="js/ScrollTrigger.min.js"></script>
+		<script src="js/lenis.min.js"></script>
+		<script src="js/imagesloaded.pkgd.min.js"></script>
+		<script type="module" src="js/index2.js"></script>
+	</body>
+</html>

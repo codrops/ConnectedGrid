@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Connected Grid Layout Animation | Demo 4 | Codrops</title>
+		<meta name="description" content="Simple on-scroll animations for connected grid items" />
+		<meta name="keywords" content="on-scroll, animation, gsap, scrolltrigger, css, grid, layout, effect" />
+		<meta name="author" content="Codrops" />
+		<link rel="shortcut icon" href="favicon.ico">
+		<link rel="stylesheet" href="https://use.typekit.net/pdt4wgm.css">
+		<link rel="stylesheet" type="text/css" href="css/base.css" />
+		<script>document.documentElement.className="js";var supportsCssVars=function(){var e,t=document.createElement("style");return t.innerHTML="root: { --tmp-var: bold; }",document.head.appendChild(t),e=!!(window.CSS&&window.CSS.supports&&window.CSS.supports("font-weight","var(--tmp-var)")),t.parentNode.removeChild(t),e};supportsCssVars()||alert("Please view this demo in a modern browser that supports CSS Variables.");</script>
+		<script src="//tympanus.net/codrops/adpacks/analytics.js"></script>
+	</head>
+	<body class="demo-4 loading">
+		<main>
+			<div class="frame">
+				<h1 class="frame__title">Connected Grid Layout Animation</h1> 
+				<a class="frame__back" href="https://tympanus.net/codrops/?p=73283">Back to the article</a>
+				<a class="frame__prev" href="https://tympanus.net/Development/OnScrollColumnsRows/">Previous demo</a>
+				<nav class="frame__demos">
+					<span class="frame__demos-item">Variations </span>
+					<a class="frame__demos-item" href="index.html">1</a>
+					<a class="frame__demos-item" href="index2.html">2</a>
+					<a class="frame__demos-item" href="index3.html">3</a>
+					<span class="frame__demos-item">4</span>
+				</nav>
+			</div>
+			<div class="grid">
+			    <figure class="grid__item" style="--r: 1;--c: 3;">
+			        <div class="grid__item-img">
+			            <div class="grid__item-img-inner" style="background-image:url(img/40.jpg);"></div>
+			        </div>
+			        <figcaption class="grid__item-caption"><h3>Osiris</h3> <span>2023</span></figcaption>
+			    </figure>
+			    <figure class="grid__item" style="--r: 2;--c: 5;">
+			        <div class="grid__item-img">
+			            <div class="grid__item-img-inner" style="background-image:url(img/41.jpg);"></div>
+			        </div>
+			        <figcaption class="grid__item-caption"><h3>Isis</h3> <span>2022</span></figcaption>
+			    </figure>
+			    <figure class="grid__item" style="--r: 3;--c: 7;">
+			        <div class="grid__item-img">
+			            <div class="grid__item-img-inner" style="background-image:url(img/42.jpg);"></div>
+			        </div>
+			        <figcaption class="grid__item-caption"><h3>Horus</h3> <span>2024</span></figcaption>
+			    </figure>
+			    <figure class="grid__item" style="--r: 4;--c: 5;">
+			        <div class="grid__item-img">
+			            <div class="grid__item-img-inner" style="background-image:url(img/43.jpg);"></div>
+			        </div>
+			        <figcaption class="grid__item-caption"><h3>Amun</h3> <span>2021</span></figcaption>
+			    </figure>
+			    <figure class="grid__item" style="--r: 5;--c: 3;">
+			        <div class="grid__item-img">
+			            <div class="grid__item-img-inner" style="background-image:url(img/44.jpg);"></div>
+			        </div>
+			        <figcaption class="grid__item-caption"><h3>Ptah</h3> <span>2023</span></figcaption>
+			    </figure>
+			    <figure class="grid__item" style="--r: 6;--c: 1;">
+			        <div class="grid__item-img">
+			            <div class="grid__item-img-inner" style="background-image:url(img/45.jpg);"></div>
+			        </div>
+			        <figcaption class="grid__item-caption"><h3>Anubis</h3> <span>2022</span></figcaption>
+			    </figure>
+			    <figure class="grid__item" style="--r: 7;--c: 3;">
+			        <div class="grid__item-img">
+			            <div class="grid__item-img-inner" style="background-image:url(img/46.jpg);"></div>
+			        </div>
+			        <figcaption class="grid__item-caption"><h3>Hathor</h3> <span>2024</span></figcaption>
+			    </figure>
+			    <figure class="grid__item" style="--r: 8;--c: 5;">
+			        <div class="grid__item-img">
+			            <div class="grid__item-img-inner" style="background-image:url(img/47.jpg);"></div>
+			        </div>
+			        <figcaption class="grid__item-caption"><h3>Bastes</h3> <span>2021</span></figcaption>
+			    </figure>
+			    <figure class="grid__item" style="--r: 9;--c: 7;">
+			        <div class="grid__item-img">
+			            <div class="grid__item-img-inner" style="background-image:url(img/48.jpg);"></div>
+			        </div>
+			        <figcaption class="grid__item-caption"><h3>Thoth</h3> <span>2023</span></figcaption>
+			    </figure>
+			    <figure class="grid__item" style="--r: 10;--c: 5;">
+			        <div class="grid__item-img">
+			            <div class="grid__item-img-inner" style="background-image:url(img/49.jpg);"></div>
+			        </div>
+			        <figcaption class="grid__item-caption"><h3>Neith</h3> <span>2022</span></figcaption>
+			    </figure>
+			    <figure class="grid__item" style="--r: 11;--c: 3;">
+			        <div class="grid__item-img">
+			            <div class="grid__item-img-inner" style="background-image:url(img/50.jpg);"></div>
+			        </div>
+			        <figcaption class="grid__item-caption"><h3>Shu</h3> <span>2024</span></figcaption>
+			    </figure>
+			    <figure class="grid__item" style="--r: 12;--c: 1;">
+			        <div class="grid__item-img">
+			            <div class="grid__item-img-inner" style="background-image:url(img/51.jpg);"></div>
+			        </div>
+			        <figcaption class="grid__item-caption"><h3>Sobek</h3> <span>2021</span></figcaption>
+			    </figure>
+			    <figure class="grid__item" style="--r: 13;--c: 3;">
+			        <div class="grid__item-img">
+			            <div class="grid__item-img-inner" style="background-image:url(img/52.jpg);"></div>
+			        </div>
+			        <figcaption class="grid__item-caption"><h3>Bes</h3> <span>2023</span></figcaption>
+			    </figure>
+			    <figure class="grid__item" style="--r: 14;--c: 5;">
+			        <div class="grid__item-img">
+			            <div class="grid__item-img-inner" style="background-image:url(img/53.jpg);"></div>
+			        </div>
+			        <figcaption class="grid__item-caption"><h3>Ra</h3> <span>2023</span></figcaption>
+			    </figure>
+			    <figure class="grid__item" style="--r: 15;--c: 7;">
+			        <div class="grid__item-img">
+			            <div class="grid__item-img-inner" style="background-image:url(img/54.jpg);"></div>
+			        </div>
+			        <figcaption class="grid__item-caption"><h3>Ma'at</h3> <span>2023</span></figcaption>
+			    </figure>
+			</div>
+			<section class="outro">
+				<h2 class="outro__title">More you might like</h2>
+				<div class="card-wrap">
+					<div class="card">
+						<a href="http://tympanus.net/Development/GridToSlider/" class="card__image" style="background-image:url(https://i7x7p5b7.stackpathcdn.com/codrops/wp-content/uploads/2023/05/gridtoslider_feat.jpg?x15297"></a>
+						<h3 class="card__title"><a href="http://tympanus.net/Development/GridToSlider/">Grid to Slideshow Switch Animations</a></h3>
+					</div>
+					<div class="card">
+						<a href="https://tympanus.net/Development/GridFlowEffect/" class="card__image" style="background-image:url(https://i7x7p5b7.stackpathcdn.com/codrops/wp-content/uploads/2023/07/gridflow_featured-1.jpg)"></a>
+						<h3 class="card__title"><a href="http://tympanus.net/Development/GridFlowEffect/">Grid Flow Animation</a></h3>
+					</div>
+				</div>
+			</section>
+			<p class="credits">Made by <a href="https://twitter.com/codrops">@codrops</a></p>
+		</main>
+		<script src="https://tympanus.net/codrops/adpacks/cda_sponsor.js"></script>
+		<script src="js/gsap.min.js"></script>
+		<script src="js/ScrollTrigger.min.js"></script>
+		<script src="js/lenis.min.js"></script>
+		<script src="js/imagesloaded.pkgd.min.js"></script>
+		<script type="module" src="js/index4.js"></script>
+	</body>
+</html>
