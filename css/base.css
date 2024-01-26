@@ -196,16 +196,15 @@ span.frame__demos-item:not(:first-child) {
 
 .grid {
 	width: 100%;
-	grid-template-columns: repeat(8,1fr);
+	grid-template-columns: 100%;
 	grid-auto-rows: auto;
 	display: grid;
+	grid-gap: 4rem;
 	position: relative;
 	margin: 10vh auto 50vh;
 }
 
 .grid__item {
-    grid-column: var(--c) / span var(--s);
-    grid-row: var(--r);
     position: relative;
     margin: 0;
 }
@@ -293,5 +292,14 @@ span.frame__demos-item:not(:first-child) {
 @media screen and (min-width: 53em) {
 	.card-wrap {
 		grid-template-columns: repeat(2,300px);
+	}
+
+	.grid {
+		grid-template-columns: repeat(8,1fr);
+	}
+
+	.grid__item {
+	    grid-column: var(--c) / span var(--s);
+	    grid-row: var(--r);
 	}
 }
