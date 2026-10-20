@@ -1,48 +1,37 @@
-// Preload images
+// Preload images (for background images, the URL is loaded in an Image and decoded)
 const preloadImages = (selector = 'img') => {
-    return new Promise((resolve) => {
-        imagesLoaded(document.querySelectorAll(selector), {background: true}, resolve);
-    });
+    return Promise.all(gsap.utils.toArray(selector).map((el) => {
+        let img = el;
+        if ( el.tagName !== 'IMG' ) {
+            const url = getComputedStyle(el).backgroundImage.match(/url\(["']?(.*?)["']?\)/)?.[1];
+            if ( !url ) return Promise.resolve();
+            img = new Image();
+            img.src = url;
+        }
+        // A broken image shouldn't keep the page from showing
+        return img.decode().catch(() => {});
+    }));
 };
 
-// Helper function that lets you dynamically figure out a grid's rows/columns as well as further refine those with "odd" or "even" ones
-// https://greensock.com/forums/topic/34808-how-can-i-animate-the-odd-and-even-columns-rows-of-a-grid-with-gsapto/?do=findComment&comment=174346
-const getGrid = selector => {
-	let elements = gsap.utils.toArray(selector),
-		bounds,
-		getSubset = (axis, dimension, alternating, merge) => {
-		  	let a = [], 
-			  	subsets = {},
-			  	onlyEven = alternating === "even",
-			  	p;
-			bounds.forEach((b, i) => {
-				let position = Math.round(b[axis] + b[dimension] / 2),
-					subset = subsets[position];
-				subset || (subsets[position] = subset = []);
-				subset.push(elements[i]);
-			});
-			for (p in subsets) {
-				a.push(subsets[p]);
+// Reduced motion: instead of the effect, fade each item in as it scrolls into view
+const fadeOnScroll = (items) => {
+	items.forEach(item => {
+		gsap.fromTo(item, {
+			opacity: 0
+		}, {
+			ease: 'none',
+			opacity: 1,
+			scrollTrigger: {
+				trigger: item,
+				start: 'top bottom',
+				end: 'top center',
+				scrub: true
 			}
-			if (onlyEven || alternating === "odd") {
-				a = a.filter((el, i) => !(i % 2) === onlyEven);
-			}
-		  	if (merge) {
-				let a2 = [];
-				a.forEach(subset => a2.push(...subset));
-				return a2;
-		  	}
-		  	return a;
-		};
-	elements.refresh = () => bounds = elements.map(el => el.getBoundingClientRect());
-	elements.columns = (alternating, merge) => getSubset("left", "width", alternating, merge);
-	elements.rows = (alternating, merge) => getSubset("top", "height", alternating, merge);
-	elements.refresh();
-
-	return elements;
-}
+		});
+	});
+};
 
 export {
     preloadImages,
-    getGrid,
+    fadeOnScroll,
 };

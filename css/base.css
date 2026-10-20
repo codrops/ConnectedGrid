@@ -69,10 +69,7 @@ body {
 }
 
 .js .loading::before {
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
+	inset: 0;
 	background: var(--color-bg);
 }
 
@@ -95,43 +92,28 @@ body {
 	}
 }
 
+@media (prefers-reduced-motion: reduce) {
+	.js .loading::after {
+		animation: none;
+	}
+}
+
 a {
 	text-decoration: none;
 	color: var(--color-link);
-	outline: none;
 	cursor: pointer;
 }
 
 a:hover {
 	color: var(--color-link-hover);
-	outline: none;
 }
 
 /* Better focus styles from https://developer.mozilla.org/en-US/docs/Web/CSS/:focus-visible */
-a:focus {
-	/* Provide a fallback style for browsers
-	 that don't support :focus-visible */
-	outline: none;
-}
-
 a:focus-visible {
 	/* Draw a very noticeable focus style for
 	 keyboard-focus on browsers that do support
 	 :focus-visible */
 	outline: 2px solid red;
-}
-
-.unbutton {
-	background: none;
-	border: 0;
-	padding: 0;
-	margin: 0;
-	font: inherit;
-	cursor: pointer;
-}
-
-.unbutton:focus {
-	outline: none;
 }
 
 .frame {
@@ -140,10 +122,10 @@ a:focus-visible {
 	display: grid;
 	min-height: 400px;
 	width: 100%;
-	grid-template-columns: auto auto 1fr 1fr;
-	grid-template-areas: 'prev back ... sponsor' 'title title title title' 'demos demos demos demos' ;
-	grid-row-gap: 1rem;
-	grid-column-gap: 2rem;
+	grid-template-columns: 100%;
+	grid-template-areas: 'links' 'tags' 'sponsor' 'title' 'demos';
+	row-gap: 1rem;
+	column-gap: 2rem;
 	pointer-events: none;
 	justify-items: start;
 }
@@ -161,14 +143,19 @@ a:focus-visible {
 	line-height: 1.2;
 }
 
-.frame__back {
-	grid-area: back;
-	justify-self: start;
+.frame__links,
+.frame__tags {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 1rem;
 }
 
-.frame__prev {
-	grid-area: prev;
-	justify-self: start;
+.frame__links {
+	grid-area: links;
+}
+
+.frame__tags {
+	grid-area: tags;
 }
 
 .frame__demos {
@@ -180,7 +167,7 @@ a:focus-visible {
 	flex-wrap: wrap;
 }
 
-.frame__demos-item:not(:first-child) {
+.frame__demo {
 	width: 2rem;
 	display: block;
 	flex: none;
@@ -190,8 +177,8 @@ a:focus-visible {
 	place-items: center;
 }
 
-span.frame__demos-item:not(:first-child) {
-	border-color: #fff;
+.frame__demo--current {
+	color: var(--color-text);
 }
 
 .grid {
@@ -199,9 +186,11 @@ span.frame__demos-item:not(:first-child) {
 	grid-template-columns: 100%;
 	grid-auto-rows: auto;
 	display: grid;
-	grid-gap: 4rem;
+	gap: 4rem;
 	position: relative;
 	margin: 10vh auto 50vh;
+	/* Items that start outside the grid (demo 2) are cut off here, so the page never gets wider than the screen */
+	overflow-x: clip;
 }
 
 .grid__item {
@@ -235,7 +224,7 @@ span.frame__demos-item:not(:first-child) {
 	gap: 0.5rem;
 }
 
-.grid__item-caption h3 {
+.grid__item-caption h2 {
 	font-weight: bold;
 	font-size: inherit;
 	margin: 0;
@@ -261,7 +250,7 @@ span.frame__demos-item:not(:first-child) {
 .card-wrap {
 	margin-top: 5vh;
 	display: grid;
-	grid-gap: 2rem;
+	gap: 2rem;
 	grid-auto-flow: row;
 	grid-template-columns: 250px;
 	text-align: center;
@@ -290,12 +279,19 @@ span.frame__demos-item:not(:first-child) {
 }
 
 @media screen and (min-width: 53em) {
+	.frame {
+		grid-template-columns: auto auto 1fr 1fr;
+		grid-template-areas: 'links tags ... sponsor' 'title title title title' 'demos demos demos demos' ;
+	}
+
 	.card-wrap {
 		grid-template-columns: repeat(2,300px);
 	}
 
 	.grid {
 		grid-template-columns: repeat(8,1fr);
+		/* No gap here, so each image's corner touches the next one's (the gap is only for the phone stack) */
+		gap: 0;
 	}
 
 	.grid__item {
